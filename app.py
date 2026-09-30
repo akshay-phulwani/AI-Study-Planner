@@ -167,14 +167,6 @@ elif selected_page == "📊 Dashboard":
             st.markdown('<div class="success-box">🎓 <b>Congratulations!</b> You have completed your entire learning roadmap!</div>', unsafe_allow_html=True)
         else:
             active_task = summary["active_task"]
-            
-            if summary["has_incomplete_previous"]:
-                st.markdown(f"""
-                <div class="warning-box">
-                    ⚠️ <b>Previous Task Incomplete</b><br>
-                    Please complete Day {active_task['day_number']}: <b>{active_task['topic_name']} — {active_task['task_title']}</b> before unlocking upcoming tasks.
-                </div>
-                """, unsafe_allow_html=True)
 
             st.subheader("📍 Current Focus Target")
             card_col1, card_col2 = st.columns([3, 1])
@@ -224,14 +216,6 @@ elif selected_page == "📅 Daily Plan":
         st.markdown('<div class="success-box">🎉 All tasks in your roadmap are complete! Great job!</div>', unsafe_allow_html=True)
     else:
         active_task = summary["active_task"]
-
-        if summary["has_incomplete_previous"]:
-            st.markdown(f"""
-            <div class="warning-box">
-                <b>⚠️ Action Required: Previous task incomplete</b><br>
-                Complete <b>Day {active_task['day_number']} ({active_task['topic_name']} — {active_task['task_title']})</b> first.
-            </div>
-            """, unsafe_allow_html=True)
 
         st.subheader("Today's Target")
         with st.container(border=True):
